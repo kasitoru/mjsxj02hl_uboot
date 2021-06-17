@@ -18,7 +18,7 @@ patch:
 
 clean:
 	make distclean -C $(UBOOT_SRC)
-	rm -f $(UBOOT_BIN) $(FIRMWARE)
+	rm -f $(UBOOT_BIN)
 
 patch_firmware:
 	dd conv=notrunc if=$(UBOOT_BIN) of=$(FIRMWARE)
@@ -27,7 +27,9 @@ erase_firmware:
 	ch341prog -v -e
 
 read_firmware:
+ifeq ("$(wildcard $(FIRMWARE))","")
 	ch341prog -v -r $(FIRMWARE)
+endif
 
 write_firmware:
 	ch341prog -v -w $(FIRMWARE)
