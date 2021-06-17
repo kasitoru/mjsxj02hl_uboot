@@ -11,10 +11,10 @@ To use the device's firmware features, you need to install [Ch341Prog](https://g
 
 ### Build u-boot:
 ```bash
-make UBOOT_SRC=u-boot-2016.11 UBOOT_CFG=mjsxj02hl_defconfig UBOOT_REG=reg_info.bin UBOOT_BIN=u-boot-mjsxj02hl.bin all
+make UBOOT_SRC=u-boot-2016.11 UBOOT_BIN=u-boot-mjsxj02hl.bin all
 ```
 
-or (defaults u-boot source directory `u-boot-2016.11`, config file `mjsxj02hl_defconfig`, reg ingo file `reg_info.bin` and output u-boot file `u-boot-mjsxj02hl.bin`):
+or (defaults u-boot source directory `u-boot-2016.11` and output file `u-boot-mjsxj02hl.bin`):
 
 ```bash
 make all
