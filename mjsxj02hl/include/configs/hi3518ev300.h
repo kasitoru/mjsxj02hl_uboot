@@ -173,7 +173,6 @@
  */
 
 /* Assume we boot with root on the seventh partition of eMMC */
-#define CONFIG_BOOTARGS "console=ttyAMA0,115200n8 root=/dev/mtdblock2 rw"
 #define CONFIG_SYS_USB_XHCI_MAX_ROOT_PORTS 2
 #define BOOT_TARGET_DEVICES(func) \
     func(USB, usb, 0) \
@@ -185,10 +184,12 @@
 	"sf read 0x40000000 0x40000 0x200000; " \
 	"bootm 0x40000000"
 
+#define CONFIG_BOOTARGS "mem=45M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=squashfs rw mtdparts=hi_sfc:256K(boot),1984K(kernel),3904K(rootfs),3904K(app),1984K(kback),3904K(aback),384K(cfg),64K(para)"
+
 #include <config_distro_bootcmd.h>
 
 /*allow change env*/
-#define  CONFIG_ENV_OVERWRITE
+#define CONFIG_ENV_OVERWRITE
 
 #define CONFIG_COMMAND_HISTORY
 
